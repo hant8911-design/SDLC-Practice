@@ -1,0 +1,5 @@
+# TC-42 / DEF-007 retest — server bind address (RISK-01) — 2026-11-02T14:02:09Z
+$ netstat -ano | grep ":3000 .*LISTENING"
+  TCP    127.0.0.1:3000         0.0.0.0:0              LISTENING       960
+
+RESULT: PASS — listens on 127.0.0.1 only (loopback), not 0.0.0.0

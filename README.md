@@ -2,6 +2,17 @@
 
 A lightweight repository of AI-assisted software development lifecycle (SDLC) prompts and standards-aligned checklist artifacts for architecture, design, database modeling, UX, and test planning.
 
+> ## 🎓 Bài tập thực hành: LeaveFlow
+>
+> Repository này chứa thêm một dự án mẫu chạy được — **LeaveFlow**, ứng dụng quản lý đơn nghỉ phép — được
+> đưa qua đủ 11 phase của quy trình bằng chính các prompt và checklist trong kit.
+>
+> | | |
+> |---|---|
+> | 📚 Toàn bộ tài liệu SDLC (có sơ đồ Mermaid) | [docs/README.md](./docs/README.md) |
+> | 💻 Mã nguồn + hướng dẫn chạy | [app/README.md](./app/README.md) — `cd app && npm start` |
+> | ✅ Báo cáo kiểm thử | [docs/07-verification/TEST_REPORT.md](./docs/07-verification/TEST_REPORT.md) |
+
 ## Purpose
 
 This repo provides reusable prompt templates and supporting checklist documents that help generate structured engineering outputs such as:

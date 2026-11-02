@@ -1,0 +1,67 @@
+$ node --test --experimental-test-coverage --test-reporter=spec tests/unit/leave.domain.test.js tests/unit/leave.service.test.js tests/unit/jsonStore.test.js tests/unit/mutation-gaps.test.js tests/api/api.test.js tests/api/encoding.test.js tests/characterization/api.char.test.js
+
+✔ TC-28 endpoint công khai và yêu cầu định danh (116.9541ms)
+✔ TC-29 luồng end-to-end: tạo → quản lý duyệt → số dư cập nhật (86.1368ms)
+✔ TC-30 ánh xạ lỗi nghiệp vụ sang HTTP status theo hợp đồng API (115.155ms)
+✔ TC-31 phục vụ giao diện web và chặn path traversal (50.6457ms)
+✔ TC-32 hiệu năng: p95 thời gian phản hồi API < 200 ms (200 request) (1080.1055ms)
+ℹ p95=6.37ms max=8.15ms n=200
+✔ TC-46 body không phải UTF-8 hợp lệ bị từ chối 400; UTF-8 tiếng Việt được lưu nguyên vẹn (DEF-008) (107.5785ms)
+✔ TC-43 characterization: hành vi API v1.0.0 không đổi (golden master) (228.1013ms)
+✔ TC-26 dữ liệu được lưu xuống file và còn nguyên sau khi khởi động lại (13.4013ms)
+✔ TC-27 sinh mã đơn tuần tự LR-0001, LR-0002 và trả bản sao (không lộ tham chiếu nội bộ) (0.2926ms)
+✔ TC-01 đếm ngày công loại trừ thứ 7, chủ nhật (3.2647ms)
+✔ TC-02 đơn hợp lệ được chuẩn hóa và tính số ngày (1.0349ms)
+✔ TC-03 từ chối loại nghỉ không hợp lệ (0.7377ms)
+✔ TC-04 từ chối ngày sai định dạng hoặc không tồn tại (0.2096ms)
+✔ TC-05 từ chối ngày kết thúc trước ngày bắt đầu (0.1617ms)
+✔ TC-06 từ chối đơn cho ngày trong quá khứ (biên: hôm nay hợp lệ) (0.1875ms)
+✔ TC-07 từ chối đơn kéo dài sang năm khác (0.1568ms)
+✔ TC-08 từ chối khoảng nghỉ chỉ gồm ngày cuối tuần (0.2311ms)
+✔ TC-09 lý do bắt buộc và tối đa 200 ký tự (biên 200/201) (0.2494ms)
+✔ TC-10 máy trạng thái chỉ cho phép chuyển từ PENDING (0.4236ms)
+✔ TC-11 tính số dư phép năm theo năm, chỉ tính ANNUAL (0.3745ms)
+✔ TC-12 nhân viên tạo đơn → PENDING, gán quản lý trực tiếp, ghi lịch sử (5.0743ms)
+✔ TC-13 quản lý không được tạo đơn nghỉ; nhân viên chưa có quản lý không tạo được đơn (0.8062ms)
+✔ TC-14 chặn đơn trùng thời gian với đơn PENDING/APPROVED, cho phép nếu đơn cũ đã hủy (0.8915ms)
+✔ TC-15 không cho vượt số dư phép năm (biên 12/13 ngày, tính cả ngày đang chờ) (0.6462ms)
+✔ TC-16 nghỉ ốm và không lương không trừ phép năm (0.4882ms)
+✔ TC-17 hủy đơn: chỉ chủ đơn, chỉ khi PENDING (0.6723ms)
+✔ TC-18 quản lý duyệt đơn → APPROVED và phép năm được trừ (0.3292ms)
+✔ TC-19 từ chối bắt buộc có lý do; nhận xét tối đa 200 ký tự (1.3226ms)
+✔ TC-20 chỉ quản lý trực tiếp mới được duyệt/từ chối (0.4441ms)
+✔ TC-21 không duyệt/từ chối lại đơn đã xử lý (0.3425ms)
+✔ TC-22 chi tiết đơn kèm lịch sử, chỉ chủ đơn và người duyệt được xem (0.6189ms)
+✔ TC-23 danh sách đơn: mine / team / lọc trạng thái / phân quyền (11.9776ms)
+✔ TC-24 người dùng thiếu/sai định danh bị từ chối (0.2426ms)
+✔ TC-25 thao tác trên đơn không tồn tại trả NOT_FOUND (0.2642ms)
+✔ TC-45 đơn mới trùng với đơn ĐÃ DUYỆT cũng bị chặn (AC-01.3) (5.2953ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6151.454
+ℹ start of coverage report
+ℹ ------------------------------------------------------------------------------------------------
+ℹ file                                    | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------------------------------------------
+ℹ src\data\seed.js                        | 100.00 |   100.00 |  100.00 | 
+ℹ src\domain\leave.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ src\repo\jsonStore.js                   | 100.00 |   100.00 |   94.44 | 
+ℹ src\server.js                           |  91.67 |    90.77 |   95.24 | 146-148 151-153 159-166
+ℹ src\service\leaveService.js             | 100.00 |   100.00 |   96.43 | 
+ℹ tests\api\api.test.js                   | 100.00 |   100.00 |  100.00 | 
+ℹ tests\api\encoding.test.js              | 100.00 |   100.00 |  100.00 | 
+ℹ tests\characterization\api.char.test.js |  94.83 |    92.31 |  100.00 | 54-56
+ℹ tests\helpers.js                        | 100.00 |   100.00 |  100.00 | 
+ℹ tests\unit\jsonStore.test.js            | 100.00 |   100.00 |  100.00 | 
+ℹ tests\unit\leave.domain.test.js         | 100.00 |   100.00 |  100.00 | 
+ℹ tests\unit\leave.service.test.js        | 100.00 |   100.00 |  100.00 | 
+ℹ tests\unit\mutation-gaps.test.js        | 100.00 |   100.00 |  100.00 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ all files                               |  98.50 |    98.02 |   98.31 |
+ℹ ------------------------------------------------------------------------------------------------
+ℹ end of coverage report

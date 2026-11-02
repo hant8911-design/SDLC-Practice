@@ -1,0 +1,23 @@
+# TC-40 Restore drill (NFR-08) — 2026-11-02T13:52:31Z — node v22.0.0 — DATA_FILE=<tmp>/db.json PORT=3005
+
+## 1. Start server, create one request
+LeaveFlow đang chạy tại http://localhost:3005 (data: C:/Users/Admin/AppData/Local/Temp/tmp.mIAwrtMSrm/db.json)
+{"status":"ok"}
+{"id":"LR-0001","employeeId":"u1","approverId":"u3","type":"ANNUAL","startDate":
+
+
+## 2. Backup (server stopped) — RUNBOOK §2
+backup size: 939 bytes
+
+## 3. Simulate corruption: truncate db.json
+$ node src/server.js
+SyntaxError: Unterminated string in JSON at position 50 (line 5 column 12)
+exit: server failed to start (expected)
+
+## 4. Restore backup and restart — RUNBOOK §4
+LeaveFlow đang chạy tại http://localhost:3005 (data: C:/Users/Admin/AppData/Local/Temp/tmp.mIAwrtMSrm/db.json)
+{"status":"ok"}
+{"id":"LR-0001","employeeId":"u1","approverId":"u3","type":"ANNUAL","startDate":"2026-11-0
+
+recovery time (corruption detected -> healthy): 3704 ms  (RTO target <= 1h)
+RESULT: PASS — data restored, LR-0001 present, RPO = last backup

@@ -1,0 +1,15 @@
+date,phase,item,ai_level,ai_did,human_decision,outcome,metric_value,metric_label,evidence
+2026-11-02,Requirements,BRD v1.0,2,Drafted BRD + elicitation transcript,PO to approve (pending),Audit round 1: 2 Fail,2,fail_rows_round1,docs/02-requirements/audits/BRD_IEEE_29148_audit.md
+2026-11-02,Requirements,BRD v1.1,2,Fixed BNFR-06/07 DEP-01..04,PO to approve (pending),Audit round 2: 0 Fail,0,fail_rows_round2,docs/02-requirements/audits/BRD_IEEE_29148_audit_round2.md
+2026-11-02,Analysis,PRD + stories,2,Drafted FR/NFR/US/AC,PO+Tech lead (pending),Round 1: 2 Fail -> round 2: 0,2,fail_rows_round1,docs/03-analysis/audits/PRD_IEEE_29148_audit.md
+2026-11-02,Design,Self-written design-audit v1,2,Author agent claimed 0 Fail without scoring rows,Rejected by independent auditor,AI error: wrote 'pass' without evidence,1,ai_claims_rejected,docs/04-design/design-audit.md
+2026-11-02,Design,10 design checklists,2,Independent auditor scored 222 rows,Owner fixed then re-audited,17 Fail -> 0,17,fail_rows_round1,docs/04-design/audits/design_checklists_audit.md
+2026-11-02,Planning,SDP + WBS,2,Drafted plan,Round 1: 4 Fail -> 0,4,fail_rows_round1,docs/05-development/audits/DevPlan_ISO_24748_5_audit.md
+2026-11-02,Implementation,v1.0 code,3,Code + 32 tests,Owner reviewed diff,First automated run 32/32 pass,32,tests_first_run,docs/07-verification/evidence
+2026-11-02,V&V,E2E UI R1.0,2,Drove browser + screenshots,Owner triaged,3 defects (DEF-001..003),3,defects_found,docs/07-verification/evidence/ui-2026-11-02
+2026-11-02,Review,Code review,2,Pre-review found 500 on null body,Owner verified by reproduction,DEF-004 fixed,1,review_findings_confirmed,docs/08-review/CODE_REVIEW.md
+2026-11-02,Design audit,Code vs design,2,Auditor found missing loopback bind,Owner verified with netstat,DEF-007 fixed,3,defects_found,docs/07-verification/evidence/ops-2026-11-02/TC-42-bind-check.txt
+2026-11-02,Maintenance,CR-R11-01,3,Golden master before change; UI rewrite,PO approval (pending),TC-43 pass before+after,18,interactions_preserved,app/tests/characterization/golden-v1.0.0.json
+2026-11-02,V&V,E2E UI R1.1,2,Drove browser + screenshots,Owner triaged,4 defects (DEF-008..011),4,defects_found,docs/07-verification/evidence/ui-r1.1-2026-11-02
+2026-11-02,V&V,Mutation testing,2,Wrote 16 mutants; first draft had 1 equivalent mutant,Owner rejected equivalent mutant,Score 93.8% -> 100%,100,mutation_score_pct,docs/07-verification/evidence/ops-2026-11-02/TC-44-mutation-after.json
+2026-11-02,V&V,Approved tests,—,Hook + CI guard,Human re-approval required to change,0 approved tests modified,0,approved_tests_modified,docs/07-verification/evidence/ops-2026-11-02/TC-47-approved-tests.log

@@ -1,0 +1,213 @@
+openapi: 3.0.3
+info:
+  title: LeaveFlow API
+  version: 1.0.0
+  description: |
+    REST API của LeaveFlow (API-LF-001). Định danh bằng header X-User-Id (ADR-003).
+    Mọi lỗi trả về dạng { error: { code, message } }.
+servers:
+  - url: http://localhost:3000/api
+security:
+  - UserId: []
+paths:
+  /health:
+    get:
+      operationId: API-01-health
+      security: []
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: object, properties: { status: { type: string, example: ok } } } } } }
+        '500': { $ref: '#/components/responses/Error' }
+  /users:
+    get:
+      operationId: API-02-listUsers
+      security: []
+      responses:
+        '200': { description: Demo users, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/User' } } } } }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+  /me:
+    get:
+      operationId: API-03-getProfile
+      responses:
+        '200':
+          description: Profile and annual balance
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user: { $ref: '#/components/schemas/User' }
+                  balance: { $ref: '#/components/schemas/Balance' }
+        '401': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+  /leave-requests:
+    get:
+      operationId: API-04-listRequests
+      parameters:
+        - { name: scope, in: query, schema: { type: string, enum: [mine, team], default: mine } }
+        - { name: status, in: query, description: Giá trị khác enum → 400 VALIDATION_ERROR, schema: { $ref: '#/components/schemas/Status' } }
+      responses:
+        '200': { description: Requests (newest first), content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/LeaveRequest' } } } } }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+    post:
+      operationId: API-05-createRequest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/NewLeaveRequest' }
+      responses:
+        '201': { description: Created (PENDING), content: { application/json: { schema: { $ref: '#/components/schemas/LeaveRequest' } } } }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '413': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+  /leave-requests/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string, example: LR-0001 } }
+    get:
+      operationId: API-06-getRequest
+      responses:
+        '200':
+          description: Request with status history
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/LeaveRequest'
+                  - type: object
+                    properties:
+                      history: { type: array, items: { $ref: '#/components/schemas/HistoryEntry' } }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+  /leave-requests/{id}/cancel:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: API-07-cancelRequest
+      responses:
+        '200': { description: CANCELLED, content: { application/json: { schema: { $ref: '#/components/schemas/LeaveRequest' } } } }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '400': { $ref: '#/components/responses/Error' }
+        '413': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+  /leave-requests/{id}/approve:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: API-08-approveRequest
+      requestBody:
+        content: { application/json: { schema: { $ref: '#/components/schemas/Decision' } } }
+      responses:
+        '200': { description: APPROVED, content: { application/json: { schema: { $ref: '#/components/schemas/LeaveRequest' } } } }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '400': { $ref: '#/components/responses/Error' }
+        '413': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+  /leave-requests/{id}/reject:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: API-09-rejectRequest
+      requestBody:
+        required: true
+        content: { application/json: { schema: { allOf: [ { $ref: '#/components/schemas/Decision' } ], required: [comment] } } }
+      responses:
+        '200': { description: REJECTED, content: { application/json: { schema: { $ref: '#/components/schemas/LeaveRequest' } } } }
+        '400': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '413': { $ref: '#/components/responses/Error' }
+        '405': { $ref: '#/components/responses/Error' }
+        '500': { $ref: '#/components/responses/Error' }
+components:
+  securitySchemes:
+    UserId: { type: apiKey, in: header, name: X-User-Id }
+  responses:
+    Error:
+      description: Error envelope
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code: { type: string, enum: [VALIDATION_ERROR, BAD_JSON, UNAUTHENTICATED, FORBIDDEN, NOT_FOUND, METHOD_NOT_ALLOWED, CONFLICT, INVALID_STATE, PAYLOAD_TOO_LARGE, INSUFFICIENT_BALANCE, INTERNAL_ERROR] }
+                  message: { type: string }
+  schemas:
+    Status: { type: string, enum: [PENDING, APPROVED, REJECTED, CANCELLED] }
+    User:
+      type: object
+      properties:
+        id: { type: string, example: u1 }
+        name: { type: string }
+        role: { type: string, enum: [EMPLOYEE, MANAGER] }
+        managerId: { type: string, nullable: true }
+    Balance:
+      type: object
+      properties:
+        year: { type: integer, example: 2026 }
+        entitlement: { type: integer, example: 12 }
+        used: { type: integer }
+        pending: { type: integer }
+        available: { type: integer }
+    NewLeaveRequest:
+      type: object
+      required: [type, startDate, endDate, reason]
+      properties:
+        type: { type: string, enum: [ANNUAL, SICK, UNPAID] }
+        startDate: { type: string, format: date }
+        endDate: { type: string, format: date }
+        reason: { type: string, minLength: 1, maxLength: 200 }
+    Decision:
+      type: object
+      properties:
+        comment: { type: string, maxLength: 200 }
+    LeaveRequest:
+      allOf:
+        - $ref: '#/components/schemas/NewLeaveRequest'
+        - type: object
+          properties:
+            id: { type: string, example: LR-0001 }
+            employeeId: { type: string }
+            employeeName: { type: string, description: Chỉ có trong API-04 }
+            approverId: { type: string }
+            days: { type: integer, description: Số ngày công T2–T6 }
+            status: { $ref: '#/components/schemas/Status' }
+            managerComment: { type: string, nullable: true }
+            createdAt: { type: string, format: date-time }
+            updatedAt: { type: string, format: date-time }
+    HistoryEntry:
+      type: object
+      properties:
+        requestId: { type: string }
+        actorId: { type: string }
+        actorName: { type: string }
+        from: { allOf: [ { $ref: '#/components/schemas/Status' } ], nullable: true }
+        to: { $ref: '#/components/schemas/Status' }
+        comment: { type: string, nullable: true }
+        at: { type: string, format: date-time }

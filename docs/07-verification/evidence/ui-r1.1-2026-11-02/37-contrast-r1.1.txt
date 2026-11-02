@@ -1,0 +1,36 @@
+# TC-41 contrast — app/public/styles.css v1.1 — WCAG 2.1 SC 1.4.3 threshold 4.5:1
+LIGHT text/page                        #111827 on #f4f6fb: 16.41:1 PASS
+LIGHT muted/surface                    #5b6474 on #ffffff:  5.97:1 PASS
+LIGHT muted/page                       #5b6474 on #f4f6fb:  5.52:1 PASS
+LIGHT muted/surface-2                  #5b6474 on #f8fafc:  5.70:1 PASS
+LIGHT on-primary/primary               #ffffff on #4338ca:  7.90:1 PASS
+LIGHT on-primary/primary-2             #ffffff on #6d28d9:  7.10:1 PASS
+LIGHT on-danger/danger                 #ffffff on #b91c1c:  6.47:1 PASS
+LIGHT toast/ok                         #ffffff on #15803d:  5.02:1 PASS
+LIGHT link/surface                     #4338ca on #ffffff:  7.90:1 PASS
+LIGHT error/surface                    #b91c1c on #ffffff:  6.47:1 PASS
+LIGHT text/preview                     #111827 on #eef2ff: 15.86:1 PASS
+LIGHT sidebar text/top                 #e0e7ff on #1e1b4b: 12.98:1 PASS
+LIGHT sidebar text/bottom              #e0e7ff on #312e81:  9.27:1 PASS
+LIGHT badge pending                    #92400e on #fef3c7:  6.37:1 PASS
+LIGHT badge approved                   #166534 on #dcfce7:  6.49:1 PASS
+LIGHT badge rejected                   #991b1b on #fee2e2:  6.80:1 PASS
+LIGHT badge cancelled                  #374151 on #e5e7eb:  8.33:1 PASS
+LIGHT nav count                        #1f1300 on #f59e0b:  8.49:1 PASS
+DARK  text/page                        #e5e7eb on #0b1020: 15.29:1 PASS
+DARK  text/surface                     #e5e7eb on #121a2f: 13.97:1 PASS
+DARK  muted/surface                    #a3acbf on #121a2f:  7.58:1 PASS
+DARK  muted/surface-2                  #a3acbf on #17213a:  7.00:1 PASS
+DARK  on-primary/primary               #0b1020 on #818cf8:  6.35:1 PASS
+DARK  on-primary/primary-2             #0b1020 on #a78bfa:  6.96:1 PASS
+DARK  on-danger/danger                 #1a0505 on #f87171:  7.11:1 PASS
+DARK  toast/ok                         #0b1020 on #4ade80: 10.86:1 PASS
+DARK  toast err                        #0b1020 on #f87171:  6.84:1 PASS
+DARK  link/surface                     #818cf8 on #121a2f:  5.80:1 PASS
+DARK  error/surface                    #f87171 on #121a2f:  6.25:1 PASS
+DARK  badge pending                    #fcd34d on #3a2a0a:  9.61:1 PASS
+DARK  badge approved                   #86efac on #0f2e1d: 10.47:1 PASS
+DARK  badge rejected                   #fca5a5 on #3b1212:  8.64:1 PASS
+DARK  badge cancelled                  #d1d5db on #26324d:  8.66:1 PASS
+DARK  (before DEF-010) white/danger    #ffffff on #f87171:  2.77:1 FAIL
+RESULT: PASS - 0 failing pairs (excluding the pre-fix DEF-010 reference row)

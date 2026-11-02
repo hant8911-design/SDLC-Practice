@@ -1,0 +1,9 @@
+# Approved tests — change only after human review (approver, date in git log)
+d3e9ad53d8d80e98376b36f7cdd008bcfe10087cfd55d87938848fad656149b8  app/tests/unit/leave.domain.test.js
+000c47f069ab8ca1817db2f6148e1f493dea7791f970792ebaffb79be0919bfc  app/tests/unit/leave.service.test.js
+f7e3bceef1e83b023c07baf1e60e52f72d3ba5f16ec6201d635297360ac83f2e  app/tests/unit/jsonStore.test.js
+9e230721e8c4ce9717c5dd99d80df532964c7640cb3c5a63ebdf3f963b8c4156  app/tests/unit/mutation-gaps.test.js
+96b6ebefe5cd93f399a661ae55294ec9d6b166d31224f7d5c61bb24a64e398fd  app/tests/api/api.test.js
+86524c2a7b19a61e73106878941ec495bfd9fa04c73797bcda7fe9d783dd7e4c  app/tests/api/encoding.test.js
+21e4d88480036ea5be50907315405641fbc046b819b60d56eddabb7bfcbd4c72  app/tests/characterization/api.char.test.js
+b6b205dabe408db9e7ff777c567a5486ceefa1280b58a501c02d72a238d0e07b  app/tests/characterization/golden-v1.0.0.json

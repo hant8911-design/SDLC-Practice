@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Approved tests unchanged (guard)
+        run: npm run approved-tests
+      - name: Lint
+        run: npm run lint
+      - name: Secret & dependency scan
+        run: npm run scan
+      - name: Unit + integration + characterization tests with coverage
+        run: npm run test:coverage
+      - name: Mutation score (threshold 80%)
+        run: npm run test:mutation

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LeaveFlow – Quản lý nghỉ phép</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Bỏ qua tới nội dung</a>
+  <div class="shell">
+    <!-- Sidebar navigation (S-00) -->
+    <aside class="sidebar" aria-label="Điều hướng">
+      <div class="brand"><span class="logo" aria-hidden="true">LF</span><span>LeaveFlow</span></div>
+      <nav id="nav" class="nav"></nav>
+      <div class="sidebar-foot">
+        <button id="themeToggle" class="ghost" type="button" aria-label="Đổi giao diện sáng/tối">🌙 Giao diện tối</button>
+        <div class="me">
+          <span id="meAvatar" class="avatar" aria-hidden="true">?</span>
+          <label class="me-select">
+            <span class="sr-only">Chọn người dùng demo</span>
+            <select id="userSelect"></select>
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      <header class="page-head">
+        <div>
+          <p id="greeting" class="eyebrow"></p>
+          <h1 id="pageTitle">Tổng quan</h1>
+        </div>
+        <p id="today" class="muted"></p>
+      </header>
+      <div id="view" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+
+  <!-- Generic modal: confirm, reject reason, request detail (S-05) -->
+  <dialog id="modal" aria-labelledby="modalTitle">
+    <form method="dialog" id="modalForm">
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+      <p id="modalError" class="error" role="alert"></p>
+      <div class="modal-actions">
+        <button value="cancel" class="ghost" id="modalCancel">Đóng</button>
+        <button value="ok" class="primary" id="modalOk">Xác nhận</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>

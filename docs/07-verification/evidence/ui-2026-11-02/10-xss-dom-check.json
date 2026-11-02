@@ -1,0 +1,7 @@
+{
+  "tc": "TC-38",
+  "url": "http://localhost:3001/ (instance tạm, DATA_FILE trống, user u3)",
+  "payload_reason": "<img src=x onerror=alert(1)><b>XSS</b>",
+  "dom_query": "document.querySelectorAll('#pendingRequests img|b').length",
+  "result": { "imgs": 0, "bolds": 0, "text": "<img src=x onerror=alert(1)><b>XSS</b>" }
+}

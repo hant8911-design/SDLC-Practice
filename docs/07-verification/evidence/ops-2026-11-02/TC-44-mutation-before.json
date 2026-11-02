@@ -1,0 +1,91 @@
+{
+  "tc": "TC-44",
+  "mutants": 16,
+  "valid": 16,
+  "killed": 15,
+  "score": 93.8,
+  "threshold": 80,
+  "verdict": "PASS",
+  "results": [
+    {
+      "label": "entitlement 12 → 13",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "Saturday counted as working day",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "end date excluded (off-by-one)",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "overlap boundary < instead of <=",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "today rejected as past",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "reason limit 200 → 199",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "date order check inverted",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "approved request becomes cancellable",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "pending days not reserved",
+      "file": "src/domain/leave.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "manager may create requests",
+      "file": "src/service/leaveService.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "overlap ignores approved requests",
+      "file": "src/service/leaveService.js",
+      "status": "SURVIVED"
+    },
+    {
+      "label": "balance check off by one",
+      "file": "src/service/leaveService.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "any manager may approve",
+      "file": "src/service/leaveService.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "anyone may cancel",
+      "file": "src/service/leaveService.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "reject without reason allowed",
+      "file": "src/service/leaveService.js",
+      "status": "KILLED"
+    },
+    {
+      "label": "anyone may read request detail",
+      "file": "src/service/leaveService.js",
+      "status": "KILLED"
+    }
+  ]
+}

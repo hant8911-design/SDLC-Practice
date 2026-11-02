@@ -1,0 +1,46 @@
+$ node --test --test-reporter=spec tests/unit/leave.domain.test.js tests/unit/leave.service.test.js tests/unit/jsonStore.test.js tests/unit/mutation-gaps.test.js tests/api/api.test.js tests/api/encoding.test.js tests/characterization/api.char.test.js
+
+✔ TC-28 endpoint công khai và yêu cầu định danh (106.4256ms)
+✔ TC-29 luồng end-to-end: tạo → quản lý duyệt → số dư cập nhật (88.1876ms)
+✔ TC-30 ánh xạ lỗi nghiệp vụ sang HTTP status theo hợp đồng API (121.6057ms)
+✔ TC-31 phục vụ giao diện web và chặn path traversal (46.4054ms)
+✔ TC-32 hiệu năng: p95 thời gian phản hồi API < 200 ms (200 request) (1016.1724ms)
+ℹ p95=6.02ms max=9.21ms n=200
+✔ TC-46 body không phải UTF-8 hợp lệ bị từ chối 400; UTF-8 tiếng Việt được lưu nguyên vẹn (DEF-008) (103.5608ms)
+✔ TC-43 characterization: hành vi API v1.0.0 không đổi (golden master) (221.3078ms)
+✔ TC-26 dữ liệu được lưu xuống file và còn nguyên sau khi khởi động lại (15.2386ms)
+✔ TC-27 sinh mã đơn tuần tự LR-0001, LR-0002 và trả bản sao (không lộ tham chiếu nội bộ) (0.3409ms)
+✔ TC-01 đếm ngày công loại trừ thứ 7, chủ nhật (2.8175ms)
+✔ TC-02 đơn hợp lệ được chuẩn hóa và tính số ngày (0.8765ms)
+✔ TC-03 từ chối loại nghỉ không hợp lệ (0.6427ms)
+✔ TC-04 từ chối ngày sai định dạng hoặc không tồn tại (0.276ms)
+✔ TC-05 từ chối ngày kết thúc trước ngày bắt đầu (0.1734ms)
+✔ TC-06 từ chối đơn cho ngày trong quá khứ (biên: hôm nay hợp lệ) (0.2455ms)
+✔ TC-07 từ chối đơn kéo dài sang năm khác (0.157ms)
+✔ TC-08 từ chối khoảng nghỉ chỉ gồm ngày cuối tuần (0.2752ms)
+✔ TC-09 lý do bắt buộc và tối đa 200 ký tự (biên 200/201) (0.5116ms)
+✔ TC-10 máy trạng thái chỉ cho phép chuyển từ PENDING (0.5587ms)
+✔ TC-11 tính số dư phép năm theo năm, chỉ tính ANNUAL (0.45ms)
+✔ TC-12 nhân viên tạo đơn → PENDING, gán quản lý trực tiếp, ghi lịch sử (5.2646ms)
+✔ TC-13 quản lý không được tạo đơn nghỉ; nhân viên chưa có quản lý không tạo được đơn (0.6025ms)
+✔ TC-14 chặn đơn trùng thời gian với đơn PENDING/APPROVED, cho phép nếu đơn cũ đã hủy (0.8294ms)
+✔ TC-15 không cho vượt số dư phép năm (biên 12/13 ngày, tính cả ngày đang chờ) (0.6456ms)
+✔ TC-16 nghỉ ốm và không lương không trừ phép năm (0.4594ms)
+✔ TC-17 hủy đơn: chỉ chủ đơn, chỉ khi PENDING (0.6808ms)
+✔ TC-18 quản lý duyệt đơn → APPROVED và phép năm được trừ (0.3858ms)
+✔ TC-19 từ chối bắt buộc có lý do; nhận xét tối đa 200 ký tự (0.627ms)
+✔ TC-20 chỉ quản lý trực tiếp mới được duyệt/từ chối (0.7384ms)
+✔ TC-21 không duyệt/từ chối lại đơn đã xử lý (0.8587ms)
+✔ TC-22 chi tiết đơn kèm lịch sử, chỉ chủ đơn và người duyệt được xem (1.5507ms)
+✔ TC-23 danh sách đơn: mine / team / lọc trạng thái / phân quyền (12.0632ms)
+✔ TC-24 người dùng thiếu/sai định danh bị từ chối (0.1939ms)
+✔ TC-25 thao tác trên đơn không tồn tại trả NOT_FOUND (0.3864ms)
+✔ TC-45 đơn mới trùng với đơn ĐÃ DUYỆT cũng bị chặn (AC-01.3) (4.613ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6117.6487

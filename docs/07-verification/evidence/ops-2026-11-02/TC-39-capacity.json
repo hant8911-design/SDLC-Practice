@@ -1,0 +1,26 @@
+{
+  "tc": "TC-39",
+  "node": "v22.0.0",
+  "dataSet": {
+    "users": 20,
+    "requests": 10000,
+    "fileMb": 3.59
+  },
+  "samplesPerEndpoint": 200,
+  "me": {
+    "p95": 9.19,
+    "max": 15.44
+  },
+  "listMine": {
+    "p95": 15.99,
+    "max": 38.88
+  },
+  "listTeam": {
+    "p95": 97.32,
+    "max": 108.57
+  },
+  "createStatus": 201,
+  "createMs": 89.89,
+  "thresholdP95Ms": 200,
+  "verdict": "PASS"
+}

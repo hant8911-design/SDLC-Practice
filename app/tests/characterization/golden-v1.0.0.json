@@ -1,0 +1,283 @@
+[
+  {
+    "request": "GET /api/health as -",
+    "status": 200,
+    "body": {
+      "status": "ok"
+    }
+  },
+  {
+    "request": "GET /api/me as u1",
+    "status": 200,
+    "body": {
+      "user": {
+        "id": "u1",
+        "name": "Nguyễn Văn An",
+        "role": "EMPLOYEE",
+        "managerId": "u3"
+      },
+      "balance": {
+        "year": 2026,
+        "entitlement": 12,
+        "used": 0,
+        "pending": 0,
+        "available": 12
+      }
+    }
+  },
+  {
+    "request": "GET /api/me as -",
+    "status": 401,
+    "body": {
+      "error": {
+        "code": "UNAUTHENTICATED",
+        "message": "Người dùng không hợp lệ (thiếu hoặc sai X-User-Id)"
+      }
+    }
+  },
+  {
+    "request": "POST /api/leave-requests as u1",
+    "status": 201,
+    "body": {
+      "id": "LR-0001",
+      "employeeId": "u1",
+      "approverId": "u3",
+      "type": "ANNUAL",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-13",
+      "reason": "Du lịch",
+      "days": 5,
+      "status": "PENDING",
+      "managerComment": null,
+      "createdAt": "<ts>",
+      "updatedAt": "<ts>"
+    }
+  },
+  {
+    "request": "POST /api/leave-requests as u1",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "CONFLICT",
+        "message": "Trùng thời gian với đơn LR-0001 (PENDING)"
+      }
+    }
+  },
+  {
+    "request": "POST /api/leave-requests as u1",
+    "status": 422,
+    "body": {
+      "error": {
+        "code": "INSUFFICIENT_BALANCE",
+        "message": "Không đủ phép năm: cần 12 ngày, còn 7 ngày"
+      }
+    }
+  },
+  {
+    "request": "POST /api/leave-requests as u2",
+    "status": 201,
+    "body": {
+      "id": "LR-0002",
+      "employeeId": "u2",
+      "approverId": "u3",
+      "type": "SICK",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-04",
+      "reason": "Ốm",
+      "days": 2,
+      "status": "PENDING",
+      "managerComment": null,
+      "createdAt": "<ts>",
+      "updatedAt": "<ts>"
+    }
+  },
+  {
+    "request": "POST /api/leave-requests as u3",
+    "status": 403,
+    "body": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "Chỉ nhân viên mới tạo được đơn nghỉ phép"
+      }
+    }
+  },
+  {
+    "request": "GET /api/leave-requests?scope=team as u3",
+    "status": 200,
+    "body": [
+      {
+        "id": "LR-0002",
+        "employeeId": "u2",
+        "approverId": "u3",
+        "type": "SICK",
+        "startDate": "2026-11-03",
+        "endDate": "2026-11-04",
+        "reason": "Ốm",
+        "days": 2,
+        "status": "PENDING",
+        "managerComment": null,
+        "createdAt": "<ts>",
+        "updatedAt": "<ts>",
+        "employeeName": "Trần Thị Bình"
+      },
+      {
+        "id": "LR-0001",
+        "employeeId": "u1",
+        "approverId": "u3",
+        "type": "ANNUAL",
+        "startDate": "2026-11-09",
+        "endDate": "2026-11-13",
+        "reason": "Du lịch",
+        "days": 5,
+        "status": "PENDING",
+        "managerComment": null,
+        "createdAt": "<ts>",
+        "updatedAt": "<ts>",
+        "employeeName": "Nguyễn Văn An"
+      }
+    ]
+  },
+  {
+    "request": "GET /api/leave-requests?scope=team as u1",
+    "status": 403,
+    "body": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "Chỉ quản lý mới xem được đơn của nhóm"
+      }
+    }
+  },
+  {
+    "request": "POST /api/leave-requests/LR-0001/approve as u2",
+    "status": 403,
+    "body": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "Chỉ quản lý trực tiếp mới được duyệt đơn này"
+      }
+    }
+  },
+  {
+    "request": "POST /api/leave-requests/LR-0001/approve as u3",
+    "status": 200,
+    "body": {
+      "id": "LR-0001",
+      "employeeId": "u1",
+      "approverId": "u3",
+      "type": "ANNUAL",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-13",
+      "reason": "Du lịch",
+      "days": 5,
+      "status": "APPROVED",
+      "managerComment": "OK",
+      "createdAt": "<ts>",
+      "updatedAt": "<ts>"
+    }
+  },
+  {
+    "request": "POST /api/leave-requests/LR-0002/reject as u3",
+    "status": 400,
+    "body": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Phải nhập lý do khi từ chối"
+      }
+    }
+  },
+  {
+    "request": "POST /api/leave-requests/LR-0002/reject as u3",
+    "status": 200,
+    "body": {
+      "id": "LR-0002",
+      "employeeId": "u2",
+      "approverId": "u3",
+      "type": "SICK",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-04",
+      "reason": "Ốm",
+      "days": 2,
+      "status": "REJECTED",
+      "managerComment": "Thiếu giấy",
+      "createdAt": "<ts>",
+      "updatedAt": "<ts>"
+    }
+  },
+  {
+    "request": "POST /api/leave-requests/LR-0001/cancel as u1",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "INVALID_STATE",
+        "message": "Không thể chuyển đơn từ APPROVED sang CANCELLED"
+      }
+    }
+  },
+  {
+    "request": "GET /api/me as u1",
+    "status": 200,
+    "body": {
+      "user": {
+        "id": "u1",
+        "name": "Nguyễn Văn An",
+        "role": "EMPLOYEE",
+        "managerId": "u3"
+      },
+      "balance": {
+        "year": 2026,
+        "entitlement": 12,
+        "used": 5,
+        "pending": 0,
+        "available": 7
+      }
+    }
+  },
+  {
+    "request": "GET /api/leave-requests/LR-0001 as u1",
+    "status": 200,
+    "body": {
+      "id": "LR-0001",
+      "employeeId": "u1",
+      "approverId": "u3",
+      "type": "ANNUAL",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-13",
+      "reason": "Du lịch",
+      "days": 5,
+      "status": "APPROVED",
+      "managerComment": "OK",
+      "createdAt": "<ts>",
+      "updatedAt": "<ts>",
+      "history": [
+        {
+          "requestId": "LR-0001",
+          "actorId": "u1",
+          "from": null,
+          "to": "PENDING",
+          "comment": null,
+          "at": "<ts>",
+          "actorName": "Nguyễn Văn An"
+        },
+        {
+          "requestId": "LR-0001",
+          "actorId": "u3",
+          "from": "PENDING",
+          "to": "APPROVED",
+          "comment": "OK",
+          "at": "<ts>",
+          "actorName": "Lê Minh Chi"
+        }
+      ]
+    }
+  },
+  {
+    "request": "GET /api/leave-requests/LR-0001 as u2",
+    "status": 403,
+    "body": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "Bạn không có quyền xem đơn này"
+      }
+    }
+  }
+]

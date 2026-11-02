@@ -1,0 +1,11 @@
+# WCAG 2.1 contrast ratios (formula 1.4.3) for app/public/styles.css — threshold 4.5:1
+badge pending            #92400e on #fef3c7: 6.37:1  PASS
+badge approved           #166534 on #dcfce7: 6.49:1  PASS
+badge rejected           #991b1b on #fee2e2: 6.8:1  PASS
+badge cancelled          #374151 on #e5e7eb: 8.33:1  PASS
+button primary           #ffffff on #2563eb: 5.17:1  PASS
+button danger            #ffffff on #dc2626: 4.83:1  PASS
+toast ok                 #ffffff on #15803d: 5.02:1  PASS
+muted text on surface    #6b7280 on #ffffff: 4.83:1  PASS
+muted text on page bg    #6b7280 on #f5f7fb: 4.51:1  PASS
+error text               #dc2626 on #ffffff: 4.83:1  PASS
