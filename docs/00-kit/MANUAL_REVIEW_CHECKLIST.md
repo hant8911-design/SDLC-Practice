@@ -39,7 +39,7 @@ Dùng cho người chấm/reviewer kiểm tra nhanh từng chặng. Đánh ☑ k
 ## D. Còn mở (con người thực hiện)
 | # | Việc | Owner |
 |---|---|---|
-| D1 | Push nhánh `feature/leaveflow-r1.1` + tag để CI chạy | Nguyễn Trần Hà |
+| D1 | ~~Push + CI~~ — đã push `main`, nhánh, 6 tag; [CI PASS](https://github.com/hant8911-design/SDLC-Practice/actions/runs/41471407160) | ✅ |
 | D2 | Ký các gate ☐ (PO, Tech lead, QA, Release owner) | Người duyệt |
 | D3 | Mở PR vào `main`, reviewer độc lập duyệt | Nguyễn Trần Hà |
 

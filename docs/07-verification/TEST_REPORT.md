@@ -134,7 +134,7 @@ Evidence: [before](./evidence/ops-2026-11-02/TC-44-mutation-before.json) · [aft
 
 | ID | Mục NotRun | Lý do | Rủi ro còn lại | Owner / khi nào |
 |---|---|---|---|---|
-| NR-01 | Pipeline CI trên GitHub | Đã commit + tag nhưng **chưa push** | Thấp — cùng lệnh đã chạy local trên `31ac9c5` | Nguyễn Trần Hà, khi push |
+| ~~NR-01~~ | Pipeline CI trên GitHub — **đã chạy, PASS** trên `main` @ `e277f67` ([run](https://github.com/hant8911-design/SDLC-Practice/actions/runs/41471407160)): guard, lint, scan, test + coverage, mutation | — | Đóng | 2026-11-02 |
 | NR-02 | Trình duyệt Firefox/Safari, điện thoại thật | Chỉ có Chromium + giả lập 375 px | Thấp | v1.2 |
 | NR-03 | Tải đồng thời nhiều client | 1 tiến trình (ADR-002), TC-39 đo tuần tự | Thấp ở quy mô 15 người | v2.0 |
 | NR-04 | Nhánh `500 INTERNAL_ERROR`, bootstrap `listen` | Không gây được lỗi mà không sửa code | Thấp | — |
@@ -186,7 +186,7 @@ xychart-beta
 | 0 defect High/Critical mở | ✅ |
 
 **Khuyến nghị: GO WITH CONDITIONS**
-1. ✅ Đã commit `31ac9c5` + tag `r1.1`, evidence chạy lại trên đúng commit. Còn: push để CI chạy (đóng NR-01). *CI pass vẫn chưa đủ để phát hành* — cần thêm checklist release có người ký ([RELEASE-1.1.0](../09-release/RELEASE-1.1.0.md)).
+1. ✅ Đã commit `31ac9c5` + tag `r1.1`, evidence chạy lại trên đúng commit. ✅ Đã push; CI PASS ([run](https://github.com/hant8911-design/SDLC-Practice/actions/runs/41471407160)) — đóng NR-01. *CI pass vẫn chưa đủ để phát hành* — cần thêm checklist release có người ký ([RELEASE-1.1.0](../09-release/RELEASE-1.1.0.md)).
 2. Chỉ chạy trên loopback cho tới khi có xác thực thật (ADR-003).
 3. Reviewer độc lập duyệt diff R1.1 ([CODE_REVIEW §5](../08-review/CODE_REVIEW.md#5-r11-review)).
 

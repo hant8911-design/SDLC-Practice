@@ -111,7 +111,7 @@ Kết quả audit checklist thật (auditor agent độc lập, chỉ đọc, 2 
 | ⑤ Planning | DevPlan ISO 24748-5 | 4 | 12 / 10 / **0** / 0 | ☐ PO + Tech lead | `plan-v1` ✅ tag (chưa ký) |
 | ⑦ Verification | Test plan IEEE 829 | 2 | 16 / 2 / **0** / 0 | ☐ QA reviewer | — |
 | ⑧ Review | Code review IEEE 1028 | — | 19/19 Pass (pre-review của agent) | ☐ Reviewer độc lập | — |
-| ⑨ Release | Pre-release checklist | — | 10/12 ✅ (còn CI sau push + review R1.1) | ☐ Release owner | `r1.1` ✅ tag (chưa ký) |
+| ⑨ Release | Pre-release checklist | — | 11/12 ✅ (CI PASS; còn review R1.1 + chữ ký) | ☐ Release owner | `r1.1` ✅ tag (chưa ký) |
 | **Tổng 14 checklist** | | **27** | **207 / 36 / 0 / 59** (302 dòng) | | |
 
 ```mermaid

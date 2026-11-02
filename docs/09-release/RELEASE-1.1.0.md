@@ -16,7 +16,7 @@
 |---|---|---|---|
 | 1 | Evidence đúng commit release | ✅ working tree sạch, 35/35, mutation 100 % | [`RUN-2026-11-02-31ac9c5-local-node22`](../07-verification/evidence/RUN-2026-11-02-31ac9c5-local-node22/) |
 | 2 | Tag `r1.1` | ✅ | `git show r1.1` |
-| 3 | CI xanh trên commit | ☐ Chờ push | `.github/workflows/ci.yml` (guard, lint, scan, test, mutation) |
+| 3 | CI xanh trên commit | ✅ `main` @ `e277f67` | [GitHub Actions run](https://github.com/hant8911-design/SDLC-Practice/actions/runs/41471407160) |
 | 4 | Test report GO | ✅ GO with conditions | [TEST_REPORT §7](../07-verification/TEST_REPORT.md#7-evaluation-and-sign-off) |
 | 5 | 0 defect High/Critical mở | ✅ 11/11 đóng | TEST_REPORT §6 |
 | 6 | Characterization giữ hành vi | ✅ 18/18 | TC-43 |

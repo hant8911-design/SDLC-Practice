@@ -20,7 +20,7 @@
 | **Release & Operations** · [RELEASE-1.1.0](./09-release/RELEASE-1.1.0.md) (SBOM, AI-BOM, SLI/SLO), [RUNBOOK](./10-operations/RUNBOOK.md) | Checklist 12 dòng, **restore đã thử** ([TC-40](./07-verification/evidence/ops-2026-11-02/TC-40-restore-drill.log)); tag `r1.1` ✅ trên `31ac9c5` | Tổng hợp evidence, nháp release note (2) | ☐ Go/No-Go; lệnh trên dữ liệu do người chạy | — (chưa gặp đề xuất lệnh phá dữ liệu) | Thời gian restore 3.7 s (proxy) · lead time tới R1: *trống — chưa tag* |
 | **Maintenance** · [CR-R11-01](./12-maintenance/CR-R11-01.md), [golden master](../app/tests/characterization/golden-v1.0.0.json) | Change approval trước khi sửa (☐ ký); **characterization pass trước và sau** (TC-43) | Characterization test, viết lại UI, impact analysis (3) | Phân loại hành vi giữ/thay: chỉ DEF-008 được đổi có chủ đích | Search render cả trang làm hỏng bộ gõ TV (DEF-009) — phát hiện bằng E2E, không phải test tự động | Tương tác API giữ nguyên 18/18 (proxy) |
 
-Ô trống còn lại: push + CI (NR-01); tag `r1.0` không thể tạo trung thực vì mã R1.0 chưa commit riêng; PR lead time và lead time tới R1 cần mở PR.
+CI đã chạy PASS trên GitHub ([run](https://github.com/hant8911-design/SDLC-Practice/actions/runs/41471407160)). Ô trống còn lại: tag `r1.0` không thể tạo trung thực vì mã R1.0 chưa commit riêng; PR lead time và lead time tới R1 cần mở PR.
 
 ## 2. Truy vết một nhu cầu rủi ro cao qua 7 mắt xích (slide B10 #12)
 
