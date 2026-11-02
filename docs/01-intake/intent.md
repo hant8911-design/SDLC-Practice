@@ -4,7 +4,7 @@
 |---|---|
 | Mã tài liệu | INT-LF-001 |
 | Phiên bản | 1.0 |
-| Trạng thái | Sẵn sàng baseline — tag `intake-v1` sẽ được tạo khi commit; chờ requester ký xác nhận |
+| Trạng thái | Baseline tag `intake-v1` tại commit `31ac9c5` (tag ghi rõ **chưa ký**); chờ requester ký xác nhận |
 | Owner | Nguyễn Trần Hà (human owner) |
 | Ngày | 2026-11-02 |
 | Prompt | `requirements/Intake_Intent_Prompt.md` v2.0 |

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="TC-28 endpoint công khai và yêu cầu định danh" time="0.102399" classname="test"/>
+	<testcase name="TC-29 luồng end-to-end: tạo → quản lý duyệt → số dư cập nhật" time="0.081500" classname="test"/>
+	<testcase name="TC-30 ánh xạ lỗi nghiệp vụ sang HTTP status theo hợp đồng API" time="0.097712" classname="test"/>
+	<testcase name="TC-31 phục vụ giao diện web và chặn path traversal" time="0.042512" classname="test"/>
+	<testcase name="TC-32 hiệu năng: p95 thời gian phản hồi API &lt; 200 ms (200 request)" time="1.018774" classname="test"/>
+	<!-- p95=5.86ms max=8.42ms n=200 -->
+	<testcase name="TC-46 body không phải UTF-8 hợp lệ bị từ chối 400; UTF-8 tiếng Việt được lưu nguyên vẹn (DEF-008)" time="0.097996" classname="test"/>
+	<testcase name="TC-43 characterization: hành vi API v1.0.0 không đổi (golden master)" time="0.219159" classname="test"/>
+	<testcase name="TC-26 dữ liệu được lưu xuống file và còn nguyên sau khi khởi động lại" time="0.013432" classname="test"/>
+	<testcase name="TC-27 sinh mã đơn tuần tự LR-0001, LR-0002 và trả bản sao (không lộ tham chiếu nội bộ)" time="0.000267" classname="test"/>
+	<testcase name="TC-01 đếm ngày công loại trừ thứ 7, chủ nhật" time="0.002917" classname="test"/>
+	<testcase name="TC-02 đơn hợp lệ được chuẩn hóa và tính số ngày" time="0.000869" classname="test"/>
+	<testcase name="TC-03 từ chối loại nghỉ không hợp lệ" time="0.000755" classname="test"/>
+	<testcase name="TC-04 từ chối ngày sai định dạng hoặc không tồn tại" time="0.000359" classname="test"/>
+	<testcase name="TC-05 từ chối ngày kết thúc trước ngày bắt đầu" time="0.000190" classname="test"/>
+	<testcase name="TC-06 từ chối đơn cho ngày trong quá khứ (biên: hôm nay hợp lệ)" time="0.000261" classname="test"/>
+	<testcase name="TC-07 từ chối đơn kéo dài sang năm khác" time="0.000268" classname="test"/>
+	<testcase name="TC-08 từ chối khoảng nghỉ chỉ gồm ngày cuối tuần" time="0.000338" classname="test"/>
+	<testcase name="TC-09 lý do bắt buộc và tối đa 200 ký tự (biên 200/201)" time="0.000522" classname="test"/>
+	<testcase name="TC-10 máy trạng thái chỉ cho phép chuyển từ PENDING" time="0.000593" classname="test"/>
+	<testcase name="TC-11 tính số dư phép năm theo năm, chỉ tính ANNUAL" time="0.000418" classname="test"/>
+	<testcase name="TC-12 nhân viên tạo đơn → PENDING, gán quản lý trực tiếp, ghi lịch sử" time="0.004787" classname="test"/>
+	<testcase name="TC-13 quản lý không được tạo đơn nghỉ; nhân viên chưa có quản lý không tạo được đơn" time="0.000587" classname="test"/>
+	<testcase name="TC-14 chặn đơn trùng thời gian với đơn PENDING/APPROVED, cho phép nếu đơn cũ đã hủy" time="0.000808" classname="test"/>
+	<testcase name="TC-15 không cho vượt số dư phép năm (biên 12/13 ngày, tính cả ngày đang chờ)" time="0.000626" classname="test"/>
+	<testcase name="TC-16 nghỉ ốm và không lương không trừ phép năm" time="0.000443" classname="test"/>
+	<testcase name="TC-17 hủy đơn: chỉ chủ đơn, chỉ khi PENDING" time="0.000769" classname="test"/>
+	<testcase name="TC-18 quản lý duyệt đơn → APPROVED và phép năm được trừ" time="0.000394" classname="test"/>
+	<testcase name="TC-19 từ chối bắt buộc có lý do; nhận xét tối đa 200 ký tự" time="0.000643" classname="test"/>
+	<testcase name="TC-20 chỉ quản lý trực tiếp mới được duyệt/từ chối" time="0.000679" classname="test"/>
+	<testcase name="TC-21 không duyệt/từ chối lại đơn đã xử lý" time="0.000563" classname="test"/>
+	<testcase name="TC-22 chi tiết đơn kèm lịch sử, chỉ chủ đơn và người duyệt được xem" time="0.001372" classname="test"/>
+	<testcase name="TC-23 danh sách đơn: mine / team / lọc trạng thái / phân quyền" time="0.012425" classname="test"/>
+	<testcase name="TC-24 người dùng thiếu/sai định danh bị từ chối" time="0.000195" classname="test"/>
+	<testcase name="TC-25 thao tác trên đơn không tồn tại trả NOT_FOUND" time="0.000219" classname="test"/>
+	<testcase name="TC-45 đơn mới trùng với đơn ĐÃ DUYỆT cũng bị chặn (AC-01.3)" time="0.004845" classname="test"/>
+	<!-- tests 35 -->
+	<!-- suites 0 -->
+	<!-- pass 35 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 6500.1034 -->
+</testsuites>

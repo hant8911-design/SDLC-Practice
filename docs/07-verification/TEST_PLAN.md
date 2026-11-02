@@ -112,7 +112,7 @@ kỹ thuật boundary/state-transition — học qua prompt `verification/TestCa
 
 | | Tiêu chí |
 |---|---|
-| **Entry** | Plan sẵn sàng baseline (`plan-v1` khi commit); TASK-01…06 Done; lint pass |
+| **Entry** | Plan baseline `plan-v1` (commit `31ac9c5`, chưa ký); TASK-01…06 Done; lint pass |
 | **Exit** | 100 % AC có ≥ 1 TC PASS; NFR đo đạt ngưỡng hoặc ghi rõ chưa đo; 0 defect High mở; TEST_REPORT có GO/NO-GO |
 
 ## 13. Risks

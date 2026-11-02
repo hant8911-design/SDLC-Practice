@@ -104,14 +104,14 @@ Kết quả audit checklist thật (auditor agent độc lập, chỉ đọc, 2 
 
 | Gate | Checklist | Vòng 1 Fail | Vòng 2 (P / Pa / F / NA) | Chữ ký | Tag |
 |---|---|---|---|---|---|
-| ① Intake | SOP §5.1 exit criteria | — | Đủ: owner, AC, risk tier Medium, approvers | ☐ Requester | `intake-v1` (chờ commit) |
-| ② Requirements | BRD IEEE 29148 | 2 | 15 / 5 / **0** / 0 | ☐ PO | `requirements-v1` (chờ commit) |
-| ③ Analysis | PRD IEEE 29148 | 2 | 16 / 3 / **0** / 1 | ☐ PO + Tech lead | `analysis-v1` (chờ commit) |
-| ④ Design | 10 checklist thiết kế | 17 | 148 / 16 / **0** / 58 | ☐ Tech lead | `design-v1` (chờ commit) |
-| ⑤ Planning | DevPlan ISO 24748-5 | 4 | 12 / 10 / **0** / 0 | ☐ PO + Tech lead | `plan-v1` (chờ commit) |
+| ① Intake | SOP §5.1 exit criteria | — | Đủ: owner, AC, risk tier Medium, approvers | ☐ Requester | `intake-v1` ✅ tag (chưa ký) |
+| ② Requirements | BRD IEEE 29148 | 2 | 15 / 5 / **0** / 0 | ☐ PO | `requirements-v1` ✅ tag (chưa ký) |
+| ③ Analysis | PRD IEEE 29148 | 2 | 16 / 3 / **0** / 1 | ☐ PO + Tech lead | `analysis-v1` ✅ tag (chưa ký) |
+| ④ Design | 10 checklist thiết kế | 17 | 148 / 16 / **0** / 58 | ☐ Tech lead | `design-v1` ✅ tag (chưa ký) |
+| ⑤ Planning | DevPlan ISO 24748-5 | 4 | 12 / 10 / **0** / 0 | ☐ PO + Tech lead | `plan-v1` ✅ tag (chưa ký) |
 | ⑦ Verification | Test plan IEEE 829 | 2 | 16 / 2 / **0** / 0 | ☐ QA reviewer | — |
 | ⑧ Review | Code review IEEE 1028 | — | 19/19 Pass (pre-review của agent) | ☐ Reviewer độc lập | — |
-| ⑨ Release | Pre-release checklist | — | 4/6 ✅, chờ commit + CI | ☐ Release owner | `v1.0.0` (chờ) |
+| ⑨ Release | Pre-release checklist | — | 10/12 ✅ (còn CI sau push + review R1.1) | ☐ Release owner | `r1.1` ✅ tag (chưa ký) |
 | **Tổng 14 checklist** | | **27** | **207 / 36 / 0 / 59** (302 dòng) | | |
 
 ```mermaid

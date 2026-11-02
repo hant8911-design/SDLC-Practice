@@ -2,9 +2,9 @@
 
 | Thuộc tính | Giá trị |
 |---|---|
-| Release ID | REL-LF-1.1.0 · tag dự kiến `r1.1` (trước đó `r1.0` = [RELEASE-1.0.0](./RELEASE-1.0.0.md)) |
+| Release ID | REL-LF-1.1.0 · tag **`r1.1`** (annotated) · `r1.0` **không có tag**: mã R1.0 chưa từng được commit riêng — chỉ còn golden master hành vi v1.0.0 (TC-43) |
 | Change request | [CR-R11-01](../12-maintenance/CR-R11-01.md) |
-| Commit | ☐ điền SHA khi commit — evidence phải chạy lại trên **đúng** commit này |
+| Commit | **`31ac9c5`** (code + tài liệu), nhánh `feature/leaveflow-r1.1`; evidence chạy trên đúng commit này |
 | Môi trường | Local workstation, Node.js ≥ 22, bind `127.0.0.1` |
 | Trạng thái | **Ready — chờ go/no-go của Release owner** |
 
@@ -14,8 +14,8 @@
 
 | # | Mục | Trạng thái | Evidence |
 |---|---|---|---|
-| 1 | Evidence đúng commit release | ☐ Chạy lại `npm run test:report` sau khi commit | `evidence/RUN-<date>-<sha>-…` |
-| 2 | Tag `r1.1` | ☐ Chờ commit | `git tag -a r1.1` |
+| 1 | Evidence đúng commit release | ✅ working tree sạch, 35/35, mutation 100 % | [`RUN-2026-11-02-31ac9c5-local-node22`](../07-verification/evidence/RUN-2026-11-02-31ac9c5-local-node22/) |
+| 2 | Tag `r1.1` | ✅ | `git show r1.1` |
 | 3 | CI xanh trên commit | ☐ Chờ push | `.github/workflows/ci.yml` (guard, lint, scan, test, mutation) |
 | 4 | Test report GO | ✅ GO with conditions | [TEST_REPORT §7](../07-verification/TEST_REPORT.md#7-evaluation-and-sign-off) |
 | 5 | 0 defect High/Critical mở | ✅ 11/11 đóng | TEST_REPORT §6 |
@@ -67,7 +67,7 @@
 
 ## 6. Rollback
 
-Dừng tiến trình → `git checkout r1.0` → `npm start`. Không có migration dữ liệu nên `db.json` dùng chung được cho cả hai bản. Mục tiêu < 5 phút.
+Dừng tiến trình → checkout bản trước (không có tag `r1.0`; bản ổn định trước đó là `main` = `6996dae`, chưa có app) → `npm start`. Vì vậy rollback thực tế của r1.1 là **tắt ứng dụng và quay về quy trình email** (fallback BNFR-06). Không có migration dữ liệu nên `db.json` dùng chung được cho cả hai bản. Mục tiêu < 5 phút.
 
 ## 7. Authorization
 

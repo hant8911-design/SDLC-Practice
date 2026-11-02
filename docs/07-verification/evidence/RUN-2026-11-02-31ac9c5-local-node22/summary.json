@@ -1,0 +1,58 @@
+{
+  "runId": "RUN-2026-11-02-31ac9c5-local-node22",
+  "date": "2026-11-02T14:59:39.767Z",
+  "environment": {
+    "node": "v22.0.0",
+    "platform": "win32 10.0.19045",
+    "arch": "x64"
+  },
+  "lint": "PASS",
+  "tests": {
+    "total": 35,
+    "pass": 35,
+    "fail": 0,
+    "skipped": 0,
+    "durationMs": 8488
+  },
+  "coverage": {
+    "allFiles": {
+      "line": 98.5,
+      "branch": 98.02,
+      "function": 98.31
+    },
+    "srcMinLine": 91.67,
+    "srcFiles": [
+      {
+        "file": "src/data/seed.js",
+        "line": 100,
+        "branch": 100,
+        "function": 100
+      },
+      {
+        "file": "src/domain/leave.js",
+        "line": 100,
+        "branch": 100,
+        "function": 100
+      },
+      {
+        "file": "src/repo/jsonStore.js",
+        "line": 100,
+        "branch": 100,
+        "function": 94.44
+      },
+      {
+        "file": "src/server.js",
+        "line": 91.67,
+        "branch": 90.77,
+        "function": 95.24
+      },
+      {
+        "file": "src/service/leaveService.js",
+        "line": 100,
+        "branch": 100,
+        "function": 96.43
+      }
+    ]
+  },
+  "verdict": "PASS"
+}

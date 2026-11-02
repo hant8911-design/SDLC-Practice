@@ -8,9 +8,9 @@
 | Owner | Nguyễn Trần Hà |
 | Approvers | Mentor khóa SDLC (QA reviewer) · Nguyễn Trần Hà (Release owner) |
 | Ngày | 2026-11-02 |
-| Commit được test | `6996dae` (base) + thay đổi chưa commit của bài tập — sẽ tag `r1.0`/`r1.1` khi commit (xem §7) |
+| Commit được test | **`31ac9c5`** trên nhánh `feature/leaveflow-r1.1` — working tree sạch khi chạy; tag `r1.1` |
 | Môi trường | Windows 10 Pro 10.0.19045 x64 · Node.js v22.0.0 · Claude Browser pane (Chromium) 800 px + mobile 375 px |
-| Run id | [`RUN-2026-11-02-6996dae-local-node22`](./evidence/RUN-2026-11-02-6996dae-local-node22/) (lần chạy cuối, sau mọi bản sửa) · [`ops-2026-11-02`](./evidence/ops-2026-11-02/) · UI R1.0 [`ui-2026-11-02`](./evidence/ui-2026-11-02/) · UI R1.1 [`ui-r1.1-2026-11-02`](./evidence/ui-r1.1-2026-11-02/) |
+| Run id | [`RUN-2026-11-02-31ac9c5-local-node22`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/) (chạy trên commit `31ac9c5`; run trước commit giữ lại ở [`RUN-…-6996dae-…`](./evidence/RUN-2026-11-02-6996dae-local-node22/) làm lịch sử) · [`ops-2026-11-02`](./evidence/ops-2026-11-02/) · UI R1.0 [`ui-2026-11-02`](./evidence/ui-2026-11-02/) · UI R1.1 [`ui-r1.1-2026-11-02`](./evidence/ui-r1.1-2026-11-02/) |
 | Prompt | `verification/TestReport_IEEE_829_Prompt.md` v2.0 |
 | Đầu vào | [TEST_PLAN](./TEST_PLAN.md) · [TEST_CASES](./TEST_CASES.md) · [RTM](./RTM.md) · [CR-R11-01](../12-maintenance/CR-R11-01.md) |
 
@@ -47,14 +47,15 @@ pie showData
 | **E2E giao diện** (thủ công, Browser pane, ảnh chụp thật) | 10 | Kịch bản TC-33…38, 41, 49…51 | `ui-2026-11-02/`, `ui-r1.1-2026-11-02/` |
 
 Dữ liệu: seed 3 user; test tự động dùng đồng hồ cố định 2026-11-02 (thứ Hai); E2E dùng dữ liệu demo tạo qua API (6 đơn).
+Trên commit `31ac9c5` còn lưu: [`mutation.json`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/mutation.json) (100 %), [`scan.log`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/scan.log), [`approved-tests.log`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/approved-tests.log).
 Tái hiện toàn bộ: `cd app && npm run test:report && npm run test:mutation && npm run scan && npm run approved-tests`.
 
 | File evidence của run cuối | Nội dung |
 |---|---|
-| [`lint.log`](./evidence/RUN-2026-11-02-6996dae-local-node22/lint.log) | `lint: OK (20 files checked)` |
-| [`test-spec.log`](./evidence/RUN-2026-11-02-6996dae-local-node22/test-spec.log) | 35 TC + `ℹ p95=6.02ms max=9.21ms n=200` |
-| [`junit.xml`](./evidence/RUN-2026-11-02-6996dae-local-node22/junit.xml) | 35 `<testcase>`, 0 `<failure>` — nguồn cột Result của RTM |
-| [`coverage.log`](./evidence/RUN-2026-11-02-6996dae-local-node22/coverage.log) · [`summary.json`](./evidence/RUN-2026-11-02-6996dae-local-node22/summary.json) | Coverage theo file, verdict `PASS` |
+| [`lint.log`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/lint.log) | `lint: OK (20 files checked)` |
+| [`test-spec.log`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/test-spec.log) | 35 TC + `ℹ p95=9.66ms max=26.45ms n=200` |
+| [`junit.xml`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/junit.xml) | 35 `<testcase>`, 0 `<failure>` — nguồn cột Result của RTM |
+| [`coverage.log`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/coverage.log) · [`summary.json`](./evidence/RUN-2026-11-02-31ac9c5-local-node22/summary.json) | Coverage theo file, verdict `PASS` |
 
 ## 3. Variances
 
@@ -97,7 +98,7 @@ xychart-beta
 
 | NFR | Ngưỡng | Đo được | Kết quả | Evidence |
 |---|---|---|---|---|
-| NFR-01 Performance | p95 < 200 ms | **6.02 ms** (max 9.21, n = 200) | PASS | TC-32 |
+| NFR-01 Performance | p95 < 200 ms | **9.66 ms** (max 26.45, n = 200) | PASS | TC-32 |
 | NFR-02 Usability / A11y | tương phản ≥ 4.5:1, chạm ≥ 44 px, không tràn 375 px, label/aria | 34/34 cặp màu đạt ở **cả 2 theme**; 44 px; 0 tràn trên 3 trang | PASS (sau DEF-005, 010, 011) | TC-41, TC-51 |
 | NFR-03 Reliability | 0 mất dữ liệu khi restart | 0 | PASS | TC-26, TC-37 |
 | NFR-04 Security | 401/403/413/400, traversal, XSS, loopback, UTF-8, scan | Tất cả đạt | PASS | TC-24, 28, 30, 31, 38, 42, 46, 48 |
@@ -133,7 +134,7 @@ Evidence: [before](./evidence/ops-2026-11-02/TC-44-mutation-before.json) · [aft
 
 | ID | Mục NotRun | Lý do | Rủi ro còn lại | Owner / khi nào |
 |---|---|---|---|---|
-| NR-01 | Pipeline CI trên GitHub | Chưa commit/push | Thấp — cùng lệnh đã chạy local | Nguyễn Trần Hà, khi push |
+| NR-01 | Pipeline CI trên GitHub | Đã commit + tag nhưng **chưa push** | Thấp — cùng lệnh đã chạy local trên `31ac9c5` | Nguyễn Trần Hà, khi push |
 | NR-02 | Trình duyệt Firefox/Safari, điện thoại thật | Chỉ có Chromium + giả lập 375 px | Thấp | v1.2 |
 | NR-03 | Tải đồng thời nhiều client | 1 tiến trình (ADR-002), TC-39 đo tuần tự | Thấp ở quy mô 15 người | v2.0 |
 | NR-04 | Nhánh `500 INTERNAL_ERROR`, bootstrap `listen` | Không gây được lỗi mà không sửa code | Thấp | — |
@@ -185,7 +186,7 @@ xychart-beta
 | 0 defect High/Critical mở | ✅ |
 
 **Khuyến nghị: GO WITH CONDITIONS**
-1. Commit, tag `r1.0` (trước R1.1) và `r1.1`, push để CI chạy xanh trên đúng commit (đóng NR-01). *CI pass vẫn chưa đủ để phát hành* — cần thêm checklist release có người ký ([RELEASE-1.1.0](../09-release/RELEASE-1.1.0.md)).
+1. ✅ Đã commit `31ac9c5` + tag `r1.1`, evidence chạy lại trên đúng commit. Còn: push để CI chạy (đóng NR-01). *CI pass vẫn chưa đủ để phát hành* — cần thêm checklist release có người ký ([RELEASE-1.1.0](../09-release/RELEASE-1.1.0.md)).
 2. Chỉ chạy trên loopback cho tới khi có xác thực thật (ADR-003).
 3. Reviewer độc lập duyệt diff R1.1 ([CODE_REVIEW §5](../08-review/CODE_REVIEW.md#5-r11-review)).
 

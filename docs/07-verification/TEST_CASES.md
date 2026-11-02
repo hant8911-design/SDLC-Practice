@@ -5,9 +5,9 @@
 | Mã tài liệu | TC-LF-001 · v1.1 (R1.1) |
 | Owner | Nguyễn Trần Hà |
 | Ngày | 2026-11-02 |
-| Commit được test | `6996dae` (base) + thay đổi chưa commit của bài tập |
+| Commit được test | `31ac9c5` (working tree sạch) |
 | Môi trường | win32 10.0.19045, Node v22.0.0; UI: Browser pane (Chromium) 800 px |
-| Run id | `RUN-2026-11-02-6996dae-local-node22` |
+| Run id | `RUN-2026-11-02-31ac9c5-local-node22` |
 | Prompt | `verification/TestCase_RTM_IEEE_829_Prompt.md` v2.0 |
 
 > TC được **dẫn xuất từ AC** trong [USER_STORIES](../03-analysis/USER_STORIES.md), không từ code (RISK-04). Tên test tự động bắt đầu bằng mã `TC-xx` để RTM đối chiếu máy móc với `junit.xml`.

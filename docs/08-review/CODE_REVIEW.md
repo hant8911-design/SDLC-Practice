@@ -5,7 +5,7 @@
 | Mã | CR-LF-001 |
 | Ngày | 2026-11-02 |
 | Phạm vi | Toàn bộ `app/` (src, public, tests, scripts), `.github/workflows/ci.yml` |
-| Base commit | `6996dae` + thay đổi chưa commit (sẽ trở thành PR / commit tag `v1.0.0`) |
+| Commit được review | `31ac9c5` (nhánh `feature/leaveflow-r1.1`, tag `r1.1`) — reviewer độc lập review diff `main...feature/leaveflow-r1.1` |
 | Risk tier | Medium |
 | Prompt | `verification/Code_Review_IEEE_1028_Prompt.md` (reviewer chỉ đọc) |
 | Checklist | `verification/Code_Review_IEEE_1028_Checklist.xlsx` — 19 dòng, chấm ở §3 |

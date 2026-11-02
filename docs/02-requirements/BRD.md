@@ -10,7 +10,7 @@
 
 | Kiểm soát tài liệu | Giá trị |
 |---|---|
-| Trạng thái | Sẵn sàng baseline — tag `requirements-v1` sẽ được tạo khi commit; chờ PO ký (xem §11.3) |
+| Trạng thái | Baseline tag `requirements-v1` tại commit `31ac9c5` (tag ghi rõ **chưa ký**); chờ PO ký (xem §11.3) |
 | Template | `requirements/BRD-Template.md` |
 | Prompt | `analysis/BRD_Prompt_IEEE_standard.md` (chuẩn ISO/IEC/IEEE 29148) |
 | Checklist | `analysis/BRD_IEEE_29148_Checklist.xlsx` → kết quả tại [brd-audit.md](./brd-audit.md) |

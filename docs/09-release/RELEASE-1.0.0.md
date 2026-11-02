@@ -7,7 +7,7 @@
 | Commit | Commit chứa thay đổi của bài tập trên nền `6996dae` — điền SHA khi tag |
 | Môi trường đích | Local workstation (demo), Node.js ≥ 22 |
 | Release owner | Nguyễn Trần Hà — ☐ chờ authorize |
-| Trạng thái | **Ready — chờ authorize** (điều kiện: TEST_REPORT §7) |
+| Trạng thái | **Superseded** — R1.0 không được phát hành/commit riêng; thay bằng [r1.1](./RELEASE-1.1.0.md). Giữ lại làm hồ sơ kế hoạch release đầu tiên |
 | Guidance | SOP §5.9 (kit không có prompt/checklist release — dùng checklist trong tài liệu này) |
 
 ## 1. Release notes
@@ -28,7 +28,7 @@ Giới hạn đã biết: định danh giả lập (chỉ chạy localhost — A
 
 | # | Kiểm tra | Trạng thái | Evidence |
 |---|---|---|---|
-| 1 | Artifact = commit đã review | ☐ Chờ commit + review | [CODE_REVIEW](../08-review/CODE_REVIEW.md) |
+| 1 | Artifact = commit đã review | ✗ Không phát hành riêng — R1.0 được thay bằng r1.1 trước khi commit (xem RELEASE-1.1.0) | [CODE_REVIEW](../08-review/CODE_REVIEW.md) |
 | 2 | Test report GO | ✅ GO with conditions | [TEST_REPORT §7](../07-verification/TEST_REPORT.md#7-evaluation-and-sign-off) |
 | 3 | CI xanh trên commit release | ☐ Chờ push | `.github/workflows/ci.yml` |
 | 4 | 0 defect High/Critical mở | ✅ | TEST_REPORT §6 |

@@ -4,7 +4,7 @@
 |---|---|
 | Mã tài liệu | PRD-LF-001 |
 | Phiên bản | 1.2 (R1.1 — CR-R11-01: FR-11…FR-14, NFR-09) |
-| Trạng thái | Sẵn sàng baseline — tag `analysis-v1` sẽ được tạo khi commit; chờ PO + Tech lead ký |
+| Trạng thái | Baseline tag `analysis-v1` tại commit `31ac9c5` (tag ghi rõ **chưa ký**); chờ PO + Tech lead ký |
 | Owner | Nguyễn Trần Hà |
 | Ngày | 2026-11-02 |
 | Prompt | `analysis/PRD_Prompt_IEEE_standard.md` (ISO/IEC/IEEE 29148) |

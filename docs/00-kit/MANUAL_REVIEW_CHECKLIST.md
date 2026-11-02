@@ -39,9 +39,9 @@ Dùng cho người chấm/reviewer kiểm tra nhanh từng chặng. Đánh ☑ k
 ## D. Còn mở (con người thực hiện)
 | # | Việc | Owner |
 |---|---|---|
-| D1 | Commit, tạo tag baseline, push để CI chạy | Nguyễn Trần Hà |
+| D1 | Push nhánh `feature/leaveflow-r1.1` + tag để CI chạy | Nguyễn Trần Hà |
 | D2 | Ký các gate ☐ (PO, Tech lead, QA, Release owner) | Người duyệt |
-| D3 | Commit + tag `r1.0`/`r1.1`, chạy lại `npm run test:report` trên đúng commit | Nguyễn Trần Hà |
+| D3 | Mở PR vào `main`, reviewer độc lập duyệt | Nguyễn Trần Hà |
 
 ## E. Đối chiếu slide buổi 10 (Capstone)
 
@@ -56,4 +56,4 @@ Dùng cho người chấm/reviewer kiểm tra nhanh từng chặng. Đánh ☑ k
 | E7 | Test đã duyệt được hook + CI bảo vệ (`.claude/approved-tests.txt`) | [settings.json](../../.claude/settings.json), [ci.yml](../../.github/workflows/ci.yml), TC-47 | ✔ | ☐ |
 | E8 | `docs/ai/delivery-log.csv` có số đo thật | [delivery-log.csv](../ai/delivery-log.csv) | ✔ | ☐ |
 | E9 | Playbook 3 dòng + lộ trình 30/60/90, checklist 8/8 | [CAPSTONE §4–5](../CAPSTONE.md#5-lộ-trình-306090-ngày) | ✔ | ☐ |
-| E10 | Tag `r1.0`, `r1.1`; evidence đúng commit | — | ✘ chưa commit | ☐ |
+| E10 | Tag `r1.1` + evidence đúng commit `31ac9c5` (`r1.0` không có — mã R1.0 chưa commit riêng) | `git tag -l`, `evidence/RUN-2026-11-02-31ac9c5-local-node22/` | ✔ | ☐ |
